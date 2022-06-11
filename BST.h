@@ -24,4 +24,6 @@ struct BST
     void Traverse();
     Node *FindClosest(int x);
     Node *_FindClosest(Node *cur, int x);
+
+    void DescendingOrderInRange(Node *cur, int &l, int &r);
 };

@@ -123,7 +123,6 @@ void BST::Output(Node *cur) {
 void BST::Traverse() {
     Output(Root);
 }
-
 Node* BST::FindClosest(int x) {
     return _FindClosest(Root, x);
 }
@@ -139,5 +138,12 @@ Node* BST::_FindClosest(Node *cur, int x) {
     if (res == nullptr) return cur;
 
     return (abs(cur->val - x) < abs(res->val - x)) ? cur : res;
+}
+
+void BST::DescendingOrderInRange(Node *cur, int &l, int &r) {
+    if (!cur) return;
+    if (cur->val <= r) DescendingOrderInRange(cur->Rightchild, l, r);
+    if (cur->val <= r && cur->val >= l) cout << cur->val << " ";
+    if (cur->val >= l) DescendingOrderInRange(cur->Leftchild, l, r);
 }
 
